@@ -1,7 +1,60 @@
 {
-  "extends": ["airbnb", "prettier"],
-  "plugins": ["prettier"],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["app"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".scss", ".css"]
+      }
+    }
+  },
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "prettier", "prettier/react"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly",
+    "_": "readonly",
+    "constants": "readonly",
+    "toaster": "readonly",
+    "store": "readonly",
+    "Actions": "readonly",
+    "screenKeys": "readonly",
+    "colors": "readonly",
+    "apiPrefix": "readonly",
+    "apis": "readonly"
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "prettier"],
   "rules": {
-    "prettier/prettier": ["error"]
+    "prettier/prettier": ["error"],
+    "linebreak-style": 0,
+    "max-len": [
+      "error",
+      { "code": 80, "ignorePattern": "^import", "ignoreStrings": true }
+    ],
+    "semi": ["error", "never"],
+    "no-shadow": [
+      "error",
+      { "builtinGlobals": false, "hoist": "functions", "allow": ["search"] }
+    ],
+    "import/no-unresolved": [0, { "caseSensitive": false }],
+    "no-param-reassign": ["error", { "props": false }],
+    "no-underscore-dangle": [2, { "allow": ["_id"] }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/forbid-prop-types": [0],
+    "import/no-cycle": [0],
+    "react/no-danger": [0],
+    "no-plusplus": [2, { "allowForLoopAfterthoughts": true }],
+    "import/no-extraneous-dependencies": ["error", { "packageDir": "./" }]
   }
 }

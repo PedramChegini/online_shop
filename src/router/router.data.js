@@ -10,13 +10,13 @@ export default {
     }
   },
   products: {
-    _: 'products',
+    _: '/products',
     product: {
-      _: 'products/product/:id/'
+      _: 'products/product?id=:id'
     }
   },
   user: {
-    _: 'user',
+    _: '/user',
     profile: {
       _: '/user/profile'
     }

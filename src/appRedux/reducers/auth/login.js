@@ -2,7 +2,7 @@ import authActionTypes from 'src/appRedux/actionTypes/auth'
 
 const defualtState = {
   isFetching: false,
-  data: null,
+  data: [],
   error: null
 }
 
@@ -16,6 +16,7 @@ export default (state = defualtState, action) => {
     case authActionTypes.LOGIN_SUCCESS:
       return {
         ...state,
+        data: action.payload,
         isFetching: false
       }
     case authActionTypes.LOGIN_FAILURE:
